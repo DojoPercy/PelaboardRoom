@@ -3,6 +3,7 @@ import React from "react";
 import Hero from "./_component/hero";
 import CompanyMarquee from "./_component/companies";
 import AboutPela from "./_component/aboutPela";
+import GlancePela from "./_component/glance";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
     <Hero/>
     <CompanyMarquee/>
     <AboutPela/>
+    <GlancePela/>
     <div className="h-[100vh] bg-white">
 
     </div>

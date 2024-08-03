@@ -15,7 +15,10 @@ const config: Config = {
         themeGreen: "#86BB46",
         LightGray: "#CFCFCF",
         themeBlue: "#071D52",
-        speBut:"#E2FF2B"
+        speBut:"#E2FF2B",
+        lighterGray:"#F3F3F3",
+        dark: "#333333",
+
       },
       animation: {
         slider: 'slide linear infinite',
@@ -35,6 +38,7 @@ const config: Config = {
       backgroundImage: {
         'custom-heroBg': "url('/slider1.jpg')",
         "location-gradient": "linear-gradient(0deg, #FFFFFF 0%, #86BB46 100%)",
+        "date-gradient": "linear-gradient(90deg, #071D52 0%, #86BB46 100%)",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",

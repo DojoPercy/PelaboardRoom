@@ -20,6 +20,7 @@
   }
 }
 
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -35,3 +36,20 @@ body {
     text-wrap: balance;
   }
 }
+
+@keyframes revealText {
+  from {
+    opacity: 0.5; /* Initial opacity */
+  }
+  to {
+    opacity: 1; /* Final opacity */
+  }
+}
+
+.letter-animation {
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+
+
