@@ -21,7 +21,7 @@ const Hero = () => {
       }, []);
   return (
     <div className="w-full px-2 lg:px-40 h-[96vh] lg:h-[100vh]  bg-custom-heroBg bg-custom-position bg-cover flex justify-center items-center relative">
-        <div className={`${isScroll ? "hidden" : 'absolute'} w-full h-full z-50  top-0 right-0`}>
+        <div className={`${isScroll ? "absolute" : 'absolute'} w-full h-full z-50  top-0 right-0`}>
             <Header />
         </div>
         <div className={`fixed w-full z-50 left-0 top-0 transition-transform duration-500 ease-out ${isScroll ? 'translate-y-0 opacity-100 ' : '-translate-y-[100%] opacity-0'}`}>
