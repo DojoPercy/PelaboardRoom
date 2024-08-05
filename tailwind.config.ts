@@ -11,6 +11,7 @@ const config: Config = {
       fontFamily: {
         montserrat:["var(--font-montserrat)"],
       },
+      
       colors:{
         themeGreen: "#86BB46",
         LightGray: "#CFCFCF",
@@ -18,15 +19,30 @@ const config: Config = {
         speBut:"#E2FF2B",
         lighterGray:"#F3F3F3",
         dark: "#333333",
+        gold: "#FFD700",
 
+
+      },
+      transitionTimingFunction: {
+        'custom': 'cubic-bezier(.78,.03,.14,.55)',
       },
       animation: {
         slider: 'slide linear infinite',
+        'scroll-left': 'scrollLeft 20s linear infinite',
+        'scroll-right': 'scrollRight 20s linear infinite',
       },
       keyframes: {
         slide: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-100%)' },
+        },
+        scrollLeft: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        scrollRight: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(100%)' },
         },
       },
       boxShadow: {

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
+import CounterIn from './counter';
 
 const splitTextIntoSpans = (text: string, inView: boolean, currentIndex: number) => {
   let charIndex = 0;
@@ -43,7 +44,7 @@ const AboutPela: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on mount
+    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -75,7 +76,7 @@ const AboutPela: React.FC = () => {
       <div className="flex justify-center lg:justify-between items-center flex-col lg:flex-row px-2 lg:px-40  space-y-8">
         <span className="text-[1.2rem] font-[700] font-montserrat lg:text-[1.925rem] w-[70%] text-center">
           {splitTextIntoSpans(totalText.slice(0, text1.length), inView, currentIndex)}
-          <h2 className={`inline text-[1.3rem] lg:text-[2.025rem] bg-clip-text text-transparent ${inView ? 'bg-date-gradient' : 'text-themeBlue'}`}>
+          <h2 className={`inline text-[1.3rem] lg:text-[2.025rem] bg-clip-text text-gradient text-transparent ${inView ? 'bg-date-gradient' : 'text-themeBlue'}`}>
             {splitTextIntoSpans(totalText.slice(text1.length, text1.length + text2.length), inView, currentIndex - text1.length)}
           </h2>
           {splitTextIntoSpans(totalText.slice(text1.length + text2.length), inView, currentIndex - text1.length - text2.length)}
@@ -83,20 +84,7 @@ const AboutPela: React.FC = () => {
         <img src="/logo.png" alt="pela" className="lg:w-[16rem] w-[16rem]" />
       </div>
     </div>
-    <div className='flex justify-center items-center py-5 lg:space-x-16 space-x-6'>
-        <div className='flex flex-col justify-center items-center'>
-            <span className='font-[300] text-[30px] lg:text-[50px] text-dark '>10K</span>
-            <span className='font-[300] text-[10] lg:text-[20px] text-themeGreen'>Energy Leaders</span>
-        </div>
-        <div className='flex flex-col justify-center items-center'>
-            <span className='font-[300] text-[30px] lg:text-[50px] text-dark '>200</span>
-            <span className='font-[300] text-[10] lg:text-[20px] text-themeGreen'>Top Companies</span>
-        </div>
-        <div className='flex flex-col justify-center items-center'>
-            <span className='font-[300] text-[30px] lg:text-[50px] text-dark '>$20b</span>
-            <span className='font-[300] text-[10] lg:text-[20px] text-themeGreen'>Investment</span>
-        </div>
-    </div>
+    <CounterIn/>
     </div>
   );
 };
