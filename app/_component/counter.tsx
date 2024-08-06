@@ -5,12 +5,26 @@ import { faBolt, faStar, faUserFriends } from '@fortawesome/free-solid-svg-icons
 
 import { useInView } from 'react-intersection-observer';
 
-const Counter = ({ end, duration, className, unit }: { end: number; duration: number; className: string ; unit?:String}) => {
+
+
+const Counter = ({
+  end,
+  duration,
+  className,
+  unit = "",
+}: {
+  end: number;
+  duration: number;
+  className: string;
+  unit?: string;
+}) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     let start = 0;
     const increment = end / (duration / 10);
+
+    if (duration === 0) return;
 
     const timer = setInterval(() => {
       start += increment;
@@ -24,33 +38,36 @@ const Counter = ({ end, duration, className, unit }: { end: number; duration: nu
     return () => clearInterval(timer);
   }, [end, duration]);
 
-  return <span className={className}>{`${count.toLocaleString()}${unit || ""}`}</span>;
+  return <span className={className}>{`${count.toLocaleString()}${unit}`}</span>;
 };
 
+
+ 
+
 const CounterIn: React.FC = () => {
-  const [ref, inView] = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
   return (
-    <div className='flex justify-center items-center py-5 lg:space-x-16 space-x-6'>
-    <div className='flex flex-col justify-center items-center'>
-      <FontAwesomeIcon icon={faBolt} className="h-8 w-8 text-gold" />
-      <span className='font-[300] text-[30px] lg:text-[50px] text-dark '>10K</span>
-      <span className='font-[300] text-[10px] lg:text-[20px] text-themeGreen'>Energy Leaders</span>
+    <div ref={ref} className='flex justify-center items-center py-5 lg:space-x-16 space-x-6'>
+      <div className='flex flex-col justify-center items-center'>
+        <FontAwesomeIcon icon={faBolt} className="h-8 w-8 text-gold" />
+        {inView && <Counter end={10000} duration={2000} className='font-[300] text-[30px] lg:text-[50px] text-dark' unit='' />}
+        <span className='font-[300] text-[10px] lg:text-[20px] text-themeGreen'>Energy Leaders</span>
+      </div>
+      <div className='flex flex-col justify-center items-center'>
+        <FontAwesomeIcon icon={faStar} className="h-8 w-8 text-themeGreen" />
+        {inView && <Counter end={200} duration={2000} className='font-[300] text-[30px] lg:text-[50px] text-dark' unit='' />}
+        <span className='font-[300] text-[10px] lg:text-[20px] text-themeGreen'>Top Companies</span>
+      </div>
+      <div className='flex flex-col justify-center items-center'>
+        <FontAwesomeIcon icon={faUserFriends} className="h-8 w-8 text-themeGreen" />
+        {inView && <Counter end={20000} duration={2000} className='font-[300] text-[30px] lg:text-[50px] text-dark' unit='$' />}
+        <span className='font-[300] text-[10px] lg:text-[20px] text-themeGreen'>Investment</span>
+      </div>
     </div>
-    <div className='flex flex-col justify-center items-center'>
-      <FontAwesomeIcon icon={faStar} className="h-8 w-8 text-themeGreen" />
-      <span className='font-[300] text-[30px] lg:text-[50px] text-dark '>200</span>
-      <span className='font-[300] text-[10px] lg:text-[20px] text-themeGreen'>Top Companies</span>
-    </div>
-    <div className='flex flex-col justify-center items-center'>
-      <FontAwesomeIcon icon={faUserFriends} className="h-8 w-8 text-themeGreen" />
-      <span className='font-[300] text-[30px] lg:text-[50px] text-dark '>$20b</span>
-      <span className='font-[300] text-[10px] lg:text-[20px] text-themeGreen'>Investment</span>
-    </div>
-  </div>
   );
 };
 
