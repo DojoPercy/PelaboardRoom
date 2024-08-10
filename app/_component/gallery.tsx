@@ -15,8 +15,8 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
     if (carousel) {
       const totalWidth = carousel.scrollWidth / 2; // Full width of the images for one cycle
       const stepWidth = totalWidth / 10; // Move 10% of the total width each step
-      const stepDuration = 10000; // Duration for each step
-      const pauseDuration = 3000; // Duration for pause
+      const stepDuration = 4000; // Duration for each step
+      const pauseDuration = 2000; // Duration for pause
 
       let animationFrameId: number;
       let startTime: number | null = null;
@@ -55,7 +55,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
   }, [isAnimating, images.length]);
 
   return (
-    <div className="relative overflow-hidden w-full h-[35vh]">
+    <div className="relative overflow-hidden w-full h-[35vh] hover:cursor-pointer">
       <div
         className="flex h-full"
         ref={carouselRef}
@@ -67,7 +67,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
         }}
       >
         {images.concat(images).map((src, index) => (
-          <div key={index} className="lg:flex-shrink-0 w-1/2 lg:w-1/3  p-2">
+          <div key={index} className="flex-shrink-0 w-1/2 lg:w-1/4  p-2">
             <img
               src={src}
               alt={`Carousel ${index}`}
@@ -77,13 +77,13 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images }) => {
         ))}
       </div>
       <button
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-500 text-white p-2 z-10"
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 hidden bg-gray-500 text-white p-2 z-10"
         onClick={() => setIsAnimating(false)}
       >
         Pause
       </button>
       <button
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-500 text-white p-2 z-10"
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 hidden bg-gray-500 text-white p-2 z-10"
         onClick={() => setIsAnimating(true)}
       >
         Play

@@ -8,7 +8,7 @@ const CompanyMarquee = () => {
             Top Sponsors
         </span>
         <div className="w-full py-4">
-            <Slider duration={10} />
+            <Slider duration={100} />
         </div>
 
     </div>

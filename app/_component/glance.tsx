@@ -19,7 +19,7 @@ const GlancePela = () => {
         
       ]
   return (
-    <div className=''>
+    <div className=' pt-20'>
         <span className='px-2 lg:px-40 text-themeBlue font-semibold text-[20px]'>
             Glance at PELA
         </span>

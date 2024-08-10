@@ -4,6 +4,7 @@ import Hero from "./_component/hero";
 import CompanyMarquee from "./_component/companies";
 import AboutPela from "./_component/aboutPela";
 import GlancePela from "./_component/glance";
+import WhyAttend from "./_component/whyattend";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
     <CompanyMarquee/>
     <AboutPela/>
     <GlancePela/>
+    <WhyAttend/>
     <div className="h-[100vh] bg-white">
 
     </div>

@@ -74,7 +74,7 @@ const AboutPela: React.FC = () => {
     <div className='flex flex-col '>
         <div className="bg-lighterGray my-11 py-16" ref={ref}>
       <div className="flex justify-center lg:justify-between items-center flex-col lg:flex-row px-2 lg:px-40  space-y-8">
-        <span className="text-[1.2rem] font-[700] font-montserrat lg:text-[1.925rem] w-[70%] text-center">
+        <span className="text-[1.2rem] font-[700] font-montserrat lg:text-[1.925rem] w-[70%] text-start">
           {splitTextIntoSpans(totalText.slice(0, text1.length), inView, currentIndex)}
           <h2 className={`inline text-[1.3rem] lg:text-[2.025rem] bg-clip-text text-gradient text-transparent ${inView ? 'bg-date-gradient' : 'text-themeBlue'}`}>
             {splitTextIntoSpans(totalText.slice(text1.length, text1.length + text2.length), inView, currentIndex - text1.length)}
