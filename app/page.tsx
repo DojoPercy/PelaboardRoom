@@ -5,6 +5,9 @@ import CompanyMarquee from "./_component/companies";
 import AboutPela from "./_component/aboutPela";
 import GlancePela from "./_component/glance";
 import WhyAttend from "./_component/whyattend";
+import Banner from "./_component/banner";
+import WhocanAttend from "./_component/whocanattend";
+import Footer from "./_component/footer";
 
 export default function Home() {
   return (
@@ -16,9 +19,10 @@ export default function Home() {
     <AboutPela/>
     <GlancePela/>
     <WhyAttend/>
-    <div className="h-[100vh] bg-white">
-
-    </div>
+    <Banner/>
+    <WhocanAttend/>
+    <Footer/>
+    
     </div>
    </React.Fragment>
   );
