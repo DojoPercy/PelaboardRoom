@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import Header from "./header";
 
+import 'aos/dist/aos.css';
+
 const Hero = () => {
     const [isScroll, setIsScroll] = useState(false)
     useEffect(() => {
@@ -27,14 +29,14 @@ const Hero = () => {
         <div className={`fixed w-full z-50 left-0 top-0 transition-transform duration-500 ease-out ${isScroll ? 'translate-y-0 opacity-100 ' : '-translate-y-[100%] opacity-0'}`}>
                 <Header />
             </div>
-        <div className="absolute w-full h-full top-0 right-0 bg-white opacity-[0.27] z-10">
+        <div className="absolute w-full h-full top-0 right-0 bg-black opacity-[0.27] z-10">
 
         </div>
       <div className="flex flex-col justify-end items-center lg:mt-[9rem]  lg:items-start mt-20 z-20">
         <div className="flex space-x-2">
           <img src="/pinimg.png" alt="logo" className="w-5 h-5" />
           <div className="">
-            <span className="text-[15px]  bg-clip-text text-transparent bg-location-gradient font-bold">
+            <span className="text-[19px]  bg-clip-text text-white font-bold">
               Middle East & Africa
             </span>
           </div>
