@@ -1,34 +1,38 @@
 "use client";
 import React from "react";
+import Marquee from "@/components/magicui/marquee"; // Adjust the import path as needed
 
-interface SliderProps {
-    duration: number; 
-}
+const Slider: React.FC<{ duration: number }> = ({ duration }) => {
+    // Define the image array directly within the component
+    const images = [
+        "/logos/em.png",
+        "/logos/jp.png",
+        "/logos/VAURSE LOGO.png",
+        "/logos/em.png",
+        "/logos/jp.png",
+        "/logos/VAURSE LOGO.png",
+        "/logos/em.png",
+        "/logos/jp.png",
+        "/logos/VAURSE LOGO.png",
+        "/logos/em.png",
+        "/logos/jp.png",
+        "/logos/VAURSE LOGO.png",
+        "/logos/em.png",
+        "/logos/jp.png",
+        "/logos/VAURSE LOGO.png",
+    ];
 
-const Slider: React.FC<SliderProps> = ({ duration }) => {
     return (
         <div className="relative overflow-hidden w-full">
-            <div
-                className="flex space-x-3 animate-slider"
-                style={{ animationDuration: `${duration}s` }}
-            >
-                <img src="/logos/em.png" alt="sponsor" className="w-[9rem]" />
-                <img src="/logos/jp.png" alt="sponsor" className="w-[5rem]" />
-                <img src="/logos/VAURSE LOGO.png" alt="sponsor" className="w-[8rem]" />
-             
-                <img src="/logos/em.png" alt="sponsor" className="w-[9rem]" />
-                <img src="/logos/jp.png" alt="sponsor" className="w-[5rem]" />
-                <img src="/logos/VAURSE LOGO.png" alt="sponsor" className="w-[8rem]" />
-                <img src="/logos/em.png" alt="sponsor" className="w-[9rem]" />
-                <img src="/logos/jp.png" alt="sponsor" className="w-[5rem]" />
-                <img src="/logos/VAURSE LOGO.png" alt="sponsor" className="w-[8rem]" />
-                <img src="/logos/em.png" alt="sponsor" className="w-[9rem]" />
-                <img src="/logos/jp.png" alt="sponsor" className="w-[5rem]" />
-                <img src="/logos/VAURSE LOGO.png" alt="sponsor" className="w-[8rem]" />
-                <img src="/logos/em.png" alt="sponsor" className="w-[9rem]" />
-                <img src="/logos/jp.png" alt="sponsor" className="w-[5rem]" />
-                <img src="/logos/VAURSE LOGO.png" alt="sponsor" className="w-[8rem]" />
-            </div>
+            <Marquee pauseOnHover className={`[--duration:60s]`}>
+                {images.map((src, index) => (
+                    <img key={index} src={src} alt={`sponsor-${index}`} className="w-24 mx-2" />
+                ))}
+                {/* Duplicate the array to create a continuous loop effect */}
+                {images.map((src, index) => (
+                    <img key={`duplicate-${index}`} src={src} alt={`sponsor-${index}`} className="w-24  mx-2" />
+                ))}
+            </Marquee>
         </div>
     );
 };
